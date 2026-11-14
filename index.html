@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahmanda Alvin Saputra | Portfolio</title>
+    
+    <!-- Inline Favicon untuk mencegah Chrome 404 /favicon.ico -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono (Konsisten di Seluruh Portofolio) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0A0D14',
+                        cardDark: '#111726',
+                        borderDark: '#1E293B',
+                        electricCyan: '#38BDF8',
+                        electricIndigo: '#6366F1',
+                        vibrantAmber: '#F59E0B',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float-slow': 'float 5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: #0A0D14; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+
+        /* Fullscreen Intro Preloader */
+        #preloader {
+            transition: transform 0.75s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.6s ease;
+        }
+        #preloader.loaded {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes introFadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-intro-text {
+            animation: introFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Cyber Grid Background */
+        .cyber-grid-bg {
+            background-size: 36px 36px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        }
+
+        /* Bento Glass Card */
+        .glass-card {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 16px 36px -10px rgba(56, 189, 248, 0.15);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typewriter Cursor */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.15em;
+            background-color: #38BDF8;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 0.85s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-slate-100 antialiased selection:bg-electricCyan selection:text-black relative font-sans">
+
+    <!-- ============================================================ -->
+    <!-- 🚀 INTRO PRELOADER -->
+    <!-- ============================================================ -->
+    <div id="preloader" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-obsidian text-white select-none">
+        <div class="absolute w-96 h-96 bg-electricCyan/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col items-center max-w-md px-6 text-center space-y-6 animate-intro-text">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cardDark border border-borderDark text-xs font-mono text-electricCyan shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-electricCyan animate-ping"></span>
+                <span>INISIALISASI_SISTEM.EXE</span>
+            </div>
+
+            <div class="space-y-2">
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                    Selamat Datang di <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricCyan via-sky-300 to-electricIndigo">Portofolio Saya</span>
+                </h1>
+                <p class="font-mono text-xs sm:text-sm text-slate-400">
+                    < Rahmanda Alvin Saputra />
+                </p>
+            </div>
+
+            <div class="w-64 sm:w-72 space-y-2 pt-2">
+                <div class="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden border border-borderDark/60 p-0.5">
+                    <div id="loader-bar" class="h-full bg-gradient-to-r from-electricCyan to-electricIndigo rounded-full transition-all duration-100 ease-out" style="width: 0%;"></div>
+                </div>
+                <div class="flex justify-between items-center text-[11px] font-mono text-slate-500">
+                    <span id="loader-status">Menyiapkan lingkungan kerja...</span>
+                    <span id="loader-percent" class="text-electricCyan font-bold">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ambient Glow Lights -->
+    <div class="fixed -top-24 left-1/4 w-[500px] h-[500px] bg-electricIndigo/20 rounded-full blur-[150px] animate-pulse-slow pointer-events-none -z-10"></div>
+    <div class="fixed top-2/3 -right-24 w-[450px] h-[450px] bg-electricCyan/15 rounded-full blur-[160px] animate-pulse-slow pointer-events-none -z-10"></div>
+
+    <!-- ============================================================ -->
+    <!-- 🧭 NAVIGATION BAR -->
+    <!-- ============================================================ -->
+    <header class="sticky top-0 z-50 backdrop-blur-lg bg-obsidian/85 border-b border-borderDark/80">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-mono font-bold text-xl tracking-wider text-white group flex items-center gap-1.5">
+                <span class="text-electricCyan"><</span>PORTOFOLIO<span class="text-electricCyan">.ALVIN/></span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm text-slate-400 font-medium">
+                <a href="#about" class="hover:text-white transition duration-200">Tentang</a>
+                <a href="#services" class="hover:text-white transition duration-200">Bidang</a>
+                <a href="#showcase" class="hover:text-white transition duration-200">Portofolio</a>
+                <a href="#experience" class="hover:text-white transition duration-200">Pengalaman</a>
+                <a href="#contact" class="hover:text-white transition duration-200">Kontak</a>
+            </nav>
+            <a href="#contact" class="px-5 py-2.5 rounded-full bg-cardDark border border-borderDark hover:border-electricCyan text-white text-xs font-mono transition duration-300 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span>Hubungi Saya</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-32">
+
+        <!-- ============================================================ -->
+        <!-- 🚀 HERO SECTION (2-KOLOM DENGAN FOTO 1 & 4 FLOATING BADGE) -->
+        <!-- ============================================================ -->
+        <section class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 pt-8 reveal-on-scroll">
+            <div class="lg:w-3/5 space-y-6">
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-cardDark/90 border border-borderDark text-xs font-mono text-electricCyan shadow-sm backdrop-blur">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    Mahasiswa TI | Politeknik Negeri Madiun
+                </div>
+                <div class="space-y-3">
+                    <p class="font-mono text-xs tracking-widest text-slate-400 uppercase">— HALO, SAYA</p>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Rahmanda <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricCyan via-sky-300 to-electricIndigo">Alvin</span> Saputra
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-mono text-slate-300 min-h-[36px] flex items-center">
+                        <span id="role-typewriter"></span><span class="typing-cursor"></span>
+                    </p>
+                </div>
+                <p class="text-slate-400 leading-relaxed text-base">
+                    Mahasiswa Teknologi Informasi di Politeknik Negeri Madiun yang berfokus membangun solusi digital modern dan keandalan sistem terintegrasi — mulai dari Rekayasa Web, Aplikasi Mobile, Inovasi IoT, hingga IT Support & Infrastruktur Jaringan.
+                </p>
+
+                <!-- Tombol CTA Hero: Langsung ke Galeri Portofolio -->
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <a href="#showcase" class="px-8 py-3.5 rounded-xl bg-electricCyan text-black font-bold text-sm hover:bg-sky-300 transition-all duration-300 shadow-xl shadow-electricCyan/20 transform hover:-translate-y-0.5 inline-flex items-center gap-2.5">
+                        <span>Jelajahi Portofolio</span>
+                        <svg class="w-4 h-4 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="19 12 12 19 5 12"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#about" class="px-7 py-3.5 rounded-xl bg-cardDark border border-borderDark hover:border-slate-500 text-slate-300 hover:text-white text-sm font-medium transition duration-300">
+                        Tentang Saya
+                    </a>
+                </div>
+
+                <!-- Squircle Social Media Icons -->
+                <div class="pt-3 flex items-center gap-3">
+                    <a href="https://github.com/RahmandaAlvin" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-12 h-12 rounded-2xl bg-cardDark/90 border border-borderDark flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-400 hover:bg-white/5 transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rahmanda-alvin-007132329/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-12 h-12 rounded-2xl bg-cardDark/90 border border-borderDark flex items-center justify-center text-slate-400 hover:text-electricCyan hover:border-electricCyan/60 transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/alvnsaputraa_/" target="_blank" rel="noopener noreferrer" title="Instagram" class="w-12 h-12 rounded-2xl bg-cardDark/90 border border-borderDark flex items-center justify-center text-slate-400 hover:text-pink-400 hover:border-pink-500/60 transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+                        <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                    </a>
+                    <a href="mailto:rahmandaalvin94@gmail.com" title="Surel Langsung" class="w-12 h-12 rounded-2xl bg-cardDark/90 border border-borderDark flex items-center justify-center text-slate-400 hover:text-vibrantAmber hover:border-vibrantAmber/60 transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+                        <svg class="w-5 h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Profile Frame (Foto 1 dengan 4 Floating Badge) -->
+            <div class="lg:w-2/5 flex justify-center relative reveal-on-scroll">
+                <div class="absolute inset-0 bg-gradient-to-tr from-electricIndigo/40 to-electricCyan/40 rounded-3xl blur-3xl opacity-75"></div>
+                
+                <div class="relative w-80 sm:w-[350px] rounded-3xl bg-cardDark/95 border border-borderDark/80 p-5 pb-8 flex flex-col items-center text-center shadow-2xl backdrop-blur-md">
+                    <div class="absolute top-6 -left-7 z-30 px-3.5 py-1.5 rounded-xl bg-obsidian/95 border border-rose-500/80 text-rose-400 text-[11px] font-mono shadow-2xl backdrop-blur-md animate-float-slow" style="animation-delay: 1.2s;">
+                        🔴 Web Developer
+                    </div>
+                    <div class="absolute top-6 -right-7 z-30 px-3.5 py-1.5 rounded-xl bg-obsidian/95 border border-electricCyan/80 text-electricCyan text-[11px] font-mono shadow-2xl backdrop-blur-md animate-float-slow">
+                        ⚡ IoT
+                    </div>
+                    <div class="absolute -bottom-3 -left-5 z-30 px-3.5 py-1.5 rounded-xl bg-obsidian/95 border border-vibrantAmber/80 text-vibrantAmber text-[11px] font-mono shadow-2xl backdrop-blur-md animate-float-slow" style="animation-delay: 2.4s;">
+                        🛠️ IT Support
+                    </div>
+                    <div class="absolute -bottom-3 -right-5 z-30 px-3.5 py-1.5 rounded-xl bg-obsidian/95 border border-emerald-400/80 text-emerald-400 text-[11px] font-mono shadow-2xl backdrop-blur-md animate-float-slow" style="animation-delay: 3.6s;">
+                        📱 Mobile App
+                    </div>
+
+                    <div class="w-full flex flex-col items-center">
+                        <div class="w-60 h-72 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl bg-slate-900 group">
+                            <img 
+                                src="images/profile1.jpg" 
+                                alt="Rahmanda Alvin Saputra" 
+                                class="w-full h-full object-cover object-[50%_10%] group-hover:scale-105 transition-transform duration-500 ease-out"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="mt-4 space-y-1">
+                        <h3 class="font-bold text-xl text-white tracking-wide">Rahmanda Alvin</h3>
+                        <p class="text-xs text-slate-400 font-medium">IT Engineer & IoT Specialist</p>
+                    </div>
+
+                    <div class="mt-3 flex flex-wrap gap-2 justify-center font-mono text-[11px] text-slate-300">
+                        <span class="px-2.5 py-1 rounded-md bg-obsidian border border-borderDark">Madiun, ID</span>
+                        <span class="px-2.5 py-1 rounded-md bg-obsidian border border-borderDark">Full-Stack & IoT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 👤 TENTANG SAYA (FOTO 2 + TOMBOL DOWNLOAD CV DI KIRI) -->
+        <!-- ============================================================ -->
+        <section id="about" class="space-y-8 reveal-on-scroll">
+            <div class="border-b border-borderDark/60 pb-4">
+                <p class="font-mono text-xs tracking-widest text-electricCyan uppercase">— PROFIL & IDENTITAS</p>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Tentang Saya</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- SISI KIRI: Foto Profil Kedua + Tombol Download CV (Span 4) -->
+                <div class="lg:col-span-4 rounded-3xl bg-cardDark/90 border border-borderDark glass-card p-6 flex flex-col items-center text-center space-y-6 relative overflow-hidden">
+                    <div class="absolute -top-12 -left-12 w-36 h-36 bg-electricCyan/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <!-- Frame Foto Kedua -->
+                    <div class="relative group w-64 h-80 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl bg-slate-900">
+                        <img 
+                            src="images/fotodirialvin.jpeg" 
+                            alt="Foto Rahmanda Alvin Saputra" 
+                            class="w-full h-full object-cover object-[50%_12%] group-hover:scale-105 transition-transform duration-500 ease-out"
+                        >
+                    </div>
+
+                    <!-- Label Identitas Singkat -->
+                    <div class="space-y-1">
+                        <h3 class="font-bold text-xl text-white">Rahmanda Alvin S.</h3>
+                        <p class="text-xs font-mono text-electricCyan">Mahasiswa D3 TI PNM</p>
+                    </div>
+
+                    <!-- Tombol Download CV -->
+                    <a href="documents/CV_Rahmanda_Alvin_Saputra.pdf" download class="w-full py-3.5 px-6 rounded-xl bg-vibrantAmber hover:bg-amber-400 text-black font-bold text-sm transition-all duration-300 shadow-lg shadow-vibrantAmber/15 transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 group">
+                        <svg class="w-4 h-4 stroke-current stroke-2 fill-none group-hover:translate-y-0.5 transition-transform" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Download Curriculum Vitae</span>
+                    </a>
+                </div>
+
+                <!-- SISI KANAN: Deskripsi Diri & Latar Belakang Sekolah (Span 8) -->
+                <div class="lg:col-span-8 rounded-3xl bg-cardDark/90 border border-borderDark glass-card p-8 space-y-6">
+                    
+                    <!-- Bio & Identitas -->
+                    <div class="space-y-3">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                            Software Developer & IoT Specialist
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed text-justify">
+                            Saya mahasiswa D3 Teknologi Informasi di Politeknik Negeri Madiun yang terbiasa menjembatani perangkat lunak dan infrastruktur fisik. Mulai dari merancang web backend dengan Laravel, mengembangkan aplikasi mobile Android (Kotlin), hingga menyambungkan perangkat IoT berbasis mikrokontroler. Bagi saya, menulis kode bukan sekadar membuat program berjalan, tapi memastikan setiap sistem stabil, aman, dan siap dipakai nyata.
+                        </p>
+                    </div>
+
+                    <!-- Riwayat Sekolah (Latar Belakang Akademis) -->
+                    <div class="pt-4 border-t border-borderDark/70 space-y-3">
+                        <p class="font-mono text-xs uppercase tracking-wider text-slate-400">Latar Belakang Akademis</p>
+                        <div class="space-y-3">
+                            <!-- Kampus -->
+                            <div class="p-4 rounded-2xl bg-obsidian/60 border border-borderDark/70 flex flex-col sm:flex-row sm:items-start justify-between gap-2 hover:border-slate-600 transition duration-200">
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">D3 Teknologi Informasi</h4>
+                                    <span class="text-xs text-electricCyan font-mono">Politeknik Negeri Madiun</span>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                                        Mendalami rekayasa perangkat lunak dan arsitektur sistem. Di luar kelas, saya dipercaya memimpin koordinasi relasi internal kampus sebagai Koordinator Divisi Dalam Negeri Himpunan Mahasiswa Teknologi Informasi.
+                                    </p>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-borderDark text-[11px] font-mono text-slate-300 shrink-0 self-start">
+                                    2024 — Sekarang
+                                </span>
+                            </div>
+
+                            <!-- SMK -->
+                            <div class="p-4 rounded-2xl bg-obsidian/60 border border-borderDark/70 flex flex-col sm:flex-row sm:items-start justify-between gap-2 hover:border-slate-600 transition duration-200">
+                                <div>
+                                    <h4 class="font-bold text-sm text-white">Teknik Komputer & Jaringan (TKJ)</h4>
+                                    <span class="text-xs text-electricCyan font-mono">SMK Negeri 5 Madiun</span>
+                                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                                        Membangun fondasi kuat di jaringan komputer (routing, switching) serta praktik kerja langsung menangani pemeliharaan hardware dan IT Support di PT Industri Kereta Api (Persero) Tahun 2023.
+                                    </p>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-borderDark text-[11px] font-mono text-slate-300 shrink-0 self-start">
+                                    2021 — 2024
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 💼 BIDANG KEAHLIAN (CYBER BENTO) -->
+        <!-- ============================================================ -->
+        <section id="services" class="space-y-8 reveal-on-scroll">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-borderDark/60 pb-4">
+                <div>
+                    <p class="font-mono text-xs tracking-widest text-electricCyan uppercase">— BIDANG KEAHLIAN</p>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Fokus & Spesialisasi Teknis</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 1. Web Engineering -->
+                <div class="group p-7 rounded-3xl bg-cardDark/90 border border-borderDark glass-card flex flex-col justify-between space-y-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-28 h-28 bg-electricCyan/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-13 h-13 p-3 rounded-2xl bg-obsidian border border-borderDark flex items-center justify-center text-electricCyan group-hover:border-electricCyan/60 transition duration-300 shadow-inner">
+                                <svg class="w-6 h-6 stroke-current stroke-2 fill-none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white group-hover:text-electricCyan transition duration-200">Web Engineering</h3>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Membangun sistem web full-stack yang rapi dan terstruktur menggunakan ekosistem Laravel. Berfokus pada logika backend yang efisien, perancangan REST API siap pakai, integrasi database MySQL yang cepat, serta antarmuka modern dengan Tailwind CSS.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-borderDark/60 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-400">
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">Laravel</span>
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">PHP</span>
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">MySQL</span>
+                    </div>
+                </div>
+
+                <!-- 2. Mobile Development -->
+                <div class="group p-7 rounded-3xl bg-cardDark/90 border border-borderDark glass-card flex flex-col justify-between space-y-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-28 h-28 bg-electricIndigo/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-13 h-13 p-3 rounded-2xl bg-obsidian border border-borderDark flex items-center justify-center text-electricIndigo group-hover:border-electricIndigo/60 transition duration-300 shadow-inner">
+                                <svg class="w-6 h-6 stroke-current stroke-2 fill-none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white group-hover:text-electricIndigo transition duration-200">Mobile Development</h3>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Mengembangkan aplikasi Android native menggunakan Kotlin dan Android Studio. Mengutamakan performa aplikasi yang responsif, konsumsi memori yang ringan, alur data API yang mulus, serta penyimpanan cache lokal agar aplikasi tetap nyaman digunakan saat koneksi offline.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-borderDark/60 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-400">
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">Kotlin</span>
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">Android SDK</span>
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">SQLite</span>
+                    </div>
+                </div>
+
+                <!-- 3. IoT & Smart Systems -->
+                <div class="group p-7 rounded-3xl bg-cardDark/90 border border-borderDark glass-card flex flex-col justify-between space-y-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-28 h-28 bg-vibrantAmber/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-13 h-13 p-3 rounded-2xl bg-obsidian border border-borderDark flex items-center justify-center text-vibrantAmber group-hover:border-vibrantAmber/60 transition duration-300 shadow-inner">
+                                <svg class="w-6 h-6 stroke-current stroke-2 fill-none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white group-hover:text-vibrantAmber transition duration-200">IoT & Smart Systems</h3>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Menghubungkan mikrokontroler (ESP32/Arduino) dengan dunia nyata lewat sensor cerdas, otomasi relai, dan aktuator. Terbiasa memprogram pemantauan data lingkungan secara real-time, logging konsumsi daya, hingga kendali jarak jauh nirkabel via dashboard web/aplikasi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-borderDark/60 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-400">
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">ESP32</span>
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">Arduino</span>
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">Sensors</span>
+                    </div>
+                </div>
+
+                <!-- 4. IT Support & Infrastructure -->
+                <div class="group p-7 rounded-3xl bg-cardDark/90 border border-borderDark glass-card flex flex-col justify-between space-y-6 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-28 h-28 bg-emerald-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500 pointer-events-none"></div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-13 h-13 p-3 rounded-2xl bg-obsidian border border-borderDark flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 transition duration-300 shadow-inner">
+                                <svg class="w-6 h-6 stroke-current stroke-2 fill-none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-white group-hover:text-emerald-400 transition duration-200">IT Support & Network</h3>
+                            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                                Menjaga keandalan infrastruktur IT dari sisi fisik hingga sistem. Berpengalaman menangani instalasi jaringan kabel/nirkabel (LAN/WLAN), routing dasar, administrasi lingkungan server, serta penanganan insiden hardware dan troubleshooting perangkat kerja secara cepat.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-borderDark/60 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-400">
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">TCP/IP</span>
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">Hardware</span>
+                        <span class="px-2 py-0.5 rounded-md bg-obsidian border border-borderDark">Server</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 🎯 GALERI PORTOFOLIO SECTION (BENTO TABS UTUH) -->
+        <!-- ============================================================ -->
+        <section id="showcase" class="relative py-12 px-4 sm:px-8 rounded-3xl cyber-grid-bg border border-borderDark/80 reveal-on-scroll overflow-hidden">
+            <div class="text-center space-y-3 max-w-2xl mx-auto">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Galeri Portofolio</h2>
+                <p class="text-slate-400 text-xs sm:text-sm font-mono">
+                    Eksplorasi rekam jejak saya melalui proyek, sertifikasi, dan keahlian teknis.
+                </p>
+            </div>
+
+            <!-- Segmented Pill Tabs Navigation -->
+            <div class="flex justify-center mt-8">
+                <div class="inline-flex p-1.5 rounded-full bg-cardDark/90 border border-borderDark shadow-2xl backdrop-blur-md">
+                    <button type="button" onclick="switchShowcaseTab('projects')" id="tab-btn-projects" class="showcase-tab-btn px-6 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 bg-white/10 text-white shadow">
+                        Proyek
+                    </button>
+                    <button type="button" onclick="switchShowcaseTab('certificates')" id="tab-btn-certificates" class="showcase-tab-btn px-6 py-2 rounded-full text-xs font-mono font-medium transition-all duration-300 text-slate-400 hover:text-white">
+                        Sertifikasi
+                    </button>
+                    <button type="button" onclick="switchShowcaseTab('techstack')" id="tab-btn-techstack" class="showcase-tab-btn px-6 py-2 rounded-full text-xs font-mono font-medium transition-all duration-300 text-slate-400 hover:text-white">
+                        Keahlian
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab 1: Proyek Pane (7 Proyek) -->
+            <div id="pane-projects" class="showcase-pane mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Proyek 1 (BARU: Proyek Magang Hardware Alat Presensi) -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-5 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-full h-44 rounded-xl bg-gradient-to-br from-slate-900 via-cardDark to-slate-950 border border-borderDark/80 relative overflow-hidden shadow-inner group-hover:border-electricCyan/50 transition duration-300">
+                            <img src="images/presensicerdas.jpg" alt="Alat Presensi Biometrik & Keypad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <span class="absolute top-3 left-3 text-[11px] font-mono text-electricCyan px-2 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">
+                                IoT & Embedded System
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-base text-white group-hover:text-electricCyan transition duration-200">Alat Presensi Cerdas (Biometrik & Keypad)</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Perangkat keras presensi real-time berbasis ESP32 dengan autentikasi ganda (sensor fingerprint & keypad 4x4), antarmuka layar OLED I2C, serta umpan balik suara melalui modul speaker amplifier dengan pengatur volume.</p>
+                    </div>
+                    <div class="pt-5 mt-4 border-t border-borderDark/60 flex items-center justify-between">
+                        <span class="text-[11px] font-mono text-slate-500">5 Teknologi</span>
+                        <span class="px-4 py-1.5 rounded-full bg-electricCyan/10 border border-electricCyan/30 text-electricCyan text-xs font-mono font-semibold">Detail ➔</span>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-5 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-full h-44 rounded-xl bg-gradient-to-br from-slate-900 via-cardDark to-slate-950 border border-borderDark/80 relative overflow-hidden shadow-inner group-hover:border-slate-600 transition duration-300">
+                            <img src="images/projek_bimbel.png" alt="Sistem Informasi Manajemen Bimbel Privat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <span class="absolute top-3 left-3 text-[11px] font-mono text-electricCyan px-2 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">
+                                Web Application
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-base text-white group-hover:text-electricCyan transition duration-200">Sistem Informasi Manajemen Bimbel Privat</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Sistem manajemen operasional bimbel berbasis web dengan hak akses multi-role, pencatatan siswa, dan pembukuan arus kas.</p>
+                    </div>
+                    <div class="pt-5 mt-4 border-t border-borderDark/60 flex items-center justify-between">
+                        <span class="text-[11px] font-mono text-slate-500">4 Teknologi</span>
+                        <a href="https://bimbelprivat.biz.id/" target="_blank" class="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono font-semibold transition duration-200 inline-flex items-center gap-1">Detail ➔</a>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-5 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-full h-44 rounded-xl bg-gradient-to-br from-slate-900 via-cardDark to-slate-950 border border-borderDark/80 relative overflow-hidden shadow-inner group-hover:border-slate-600 transition duration-300">
+                            <img src="images/pencahayaan_pintar.jpg" alt="Sistem Pencahayaan Pintar & Multi-Kontrol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <span class="absolute top-3 left-3 text-[11px] font-mono text-electricCyan px-2 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">
+                                    IoT & Automation
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-base text-white group-hover:text-electricCyan transition duration-200">Sistem Pencahayaan Pintar & Multi-Kontrol</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Otomasi lampu berdasarkan intensitas cahaya, kendali suara & aplikasi, serta telemetri konsumsi daya listrik real-time.</p>
+                    </div>
+                    <div class="pt-5 mt-4 border-t border-borderDark/60 flex items-center justify-between">
+                        <span class="text-[11px] font-mono text-slate-500">4 Teknologi</span>
+                        <span class="px-4 py-1.5 rounded-full bg-slate-800/80 text-slate-400 text-xs font-mono font-medium">Detail ➔</span>
+                    </div>
+                </div>
+
+                <!-- Proyek 4 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-5 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-full h-44 rounded-xl bg-gradient-to-br from-slate-900 via-cardDark to-slate-950 border border-borderDark/80 relative overflow-hidden shadow-inner group-hover:border-slate-600 transition duration-300">
+                            <img src="images/MoovAPP.jpg" alt="Moov App - Mobile Application" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <span class="absolute top-3 left-3 text-[11px] font-mono text-electricCyan px-2 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">
+                                Mobile Application
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-base text-white group-hover:text-electricCyan transition duration-200">Moov App</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Aplikasi eksplorasi film Android dengan integrasi API online dan penyimpanan cache lokal SQLite.</p>
+                    </div>
+                    <div class="pt-5 mt-4 border-t border-borderDark/60 flex items-center justify-between">
+                        <span class="text-[11px] font-mono text-slate-500">4 Teknologi</span>
+                            <a href="https://github.com/aidiliafitriasari/Moov-App" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono font-semibold transition duration-200 inline-flex items-center gap-1">
+                                 Detail ➔
+                            </a>                    
+                    </div>
+                </div>
+
+                <!-- Proyek 5 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-5 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-full h-44 rounded-xl bg-gradient-to-br from-slate-900 via-cardDark to-slate-950 border border-borderDark/80 relative overflow-hidden shadow-inner group-hover:border-slate-600 transition duration-300">
+                            <img src="images/moneyflow.jpg" alt="MoneyFlow - Mobile Application" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                                <span class="absolute top-3 left-3 text-[11px] font-mono text-electricCyan px-2 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">
+                                    Mobile Application
+                                </span>
+                        </div>
+                        <h3 class="font-bold text-base text-white group-hover:text-electricCyan transition duration-200">MoneyFlow</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Aplikasi pencatat keuangan pribadi dan visualisasi anggaran pengeluaran harian.</p>
+                    </div>
+                    <div class="pt-5 mt-4 border-t border-borderDark/60 flex items-center justify-between">
+                        <span class="text-[11px] font-mono text-slate-500">3 Teknologi</span>
+                            <a href="https://github.com/RahmandaAlvin/moneyflow-app" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono font-semibold transition duration-200 inline-flex items-center gap-1">
+                                Detail ➔
+                            </a>                    
+                        </div>
+                    </div>
+
+                <!-- Proyek 6 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-5 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-full h-44 rounded-xl bg-gradient-to-br from-slate-900 via-cardDark to-slate-950 border border-borderDark/80 relative overflow-hidden shadow-inner group-hover:border-slate-600 transition duration-300">
+                            <img src="images/keamanan_lingkungan_rumah.jpg" alt="Sistem Keamanan Lingkungan Rumah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <span class="absolute top-3 left-3 text-[11px] font-mono text-electricCyan px-2 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">
+                                 IoT & Hardware
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-base text-white group-hover:text-electricCyan transition duration-200">Sistem Keamanan Lingkungan Rumah</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Sistem deteksi kebocoran gas, suhu ruangan, dan cuaca hujan berbasis notifikasi otomatis.</p>
+                    </div>
+                    <div class="pt-5 mt-4 border-t border-borderDark/60 flex items-center justify-between">
+                        <span class="text-[11px] font-mono text-slate-500">4 Teknologi</span>
+                        <span class="px-4 py-1.5 rounded-full bg-slate-800/80 text-slate-400 text-xs font-mono font-medium">Detail ➔</span>
+                    </div>
+                </div>
+
+                <!-- Proyek 7 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-5 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="w-full h-44 rounded-xl bg-gradient-to-br from-slate-900 via-cardDark to-slate-950 border border-borderDark/80 relative overflow-hidden shadow-inner group-hover:border-slate-600 transition duration-300">
+                            <img src="images/sayur_verse.jpg" alt="SayurVerse - Web Application" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <span class="absolute top-3 left-3 text-[11px] font-mono text-electricCyan px-2 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">
+                                Web Application
+                            </span>
+                        </div>
+                        <h3 class="font-bold text-base text-white group-hover:text-electricCyan transition duration-200">SayurVerse</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed line-clamp-3">Platform katalog e-commerce produk pertanian segar dan rantai pasok agribisnis.</p>
+                    </div>
+                    <div class="pt-5 mt-4 border-t border-borderDark/60 flex items-center justify-between">
+                        <span class="text-[11px] font-mono text-slate-500">3 Teknologi</span>
+                        <a href="https://github.com/FahrizallNurS/ProyekPenjualanSayur" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-mono font-semibold transition duration-200 inline-flex items-center gap-1">
+                            Detail ➔
+                        </a>                    
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Sertifikasi Pane (8 Sertifikat Lengkap) -->
+            <div id="pane-certificates" class="showcase-pane hidden mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Sertifikat 1 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div onclick="openCertModal('images/Sertifikat_JalinRelasi.png', 'Sertifikat Partisipasi Jalin Relasi', 'Politeknik Negeri Madiun', '2026')" class="w-full h-48 rounded-xl bg-slate-900 border border-borderDark/80 relative overflow-hidden group-hover:border-vibrantAmber/50 transition duration-300 cursor-pointer group/frame">
+                            <img src="images/Sertifikat_JalinRelasi.png" alt="Sertifikat Partisipasi Jalin Relasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-obsidian/40 opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="px-3 py-1.5 rounded-full bg-obsidian/90 border border-white/20 text-xs font-mono text-white flex items-center gap-1.5 shadow-xl">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                    <span>Perbesar</span>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 right-3 text-[11px] font-mono font-bold text-vibrantAmber px-2.5 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">2026</span>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block">Politeknik Negeri Madiun</span>
+                            <h3 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200 mt-0.5 leading-snug">Sertifikat Partisipasi Jalin Relasi</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 2 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div onclick="openCertModal('images/Sertifikat_AnggotaDagri.jpeg', 'Sertifikat Pengurus HIMATIF', 'Politeknik Negeri Madiun', '2025')" class="w-full h-48 rounded-xl bg-slate-900 border border-borderDark/80 relative overflow-hidden group-hover:border-vibrantAmber/50 transition duration-300 cursor-pointer group/frame">
+                            <img src="images/Sertifikat_AnggotaDagri.jpeg" alt="Sertifikat Pengurus HIMATIF" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-obsidian/40 opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="px-3 py-1.5 rounded-full bg-obsidian/90 border border-white/20 text-xs font-mono text-white flex items-center gap-1.5 shadow-xl">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                    <span>Perbesar</span>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 right-3 text-[11px] font-mono font-bold text-vibrantAmber px-2.5 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">2025</span>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block">Politeknik Negeri Madiun</span>
+                            <h3 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200 mt-0.5 leading-snug">Sertifikat Pengurus HIMATIF</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 3 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div onclick="openCertModal('images/Sertifikat_Udpatingskill-1.png', 'Sertifikat Upgrading Skill', 'Politeknik Negeri Madiun', '2025')" class="w-full h-48 rounded-xl bg-slate-900 border border-borderDark/80 relative overflow-hidden group-hover:border-vibrantAmber/50 transition duration-300 cursor-pointer group/frame">
+                            <img src="images/Sertifikat_Udpatingskill-1.png" alt="Sertifikat Upgrading Skill" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-obsidian/40 opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="px-3 py-1.5 rounded-full bg-obsidian/90 border border-white/20 text-xs font-mono text-white flex items-center gap-1.5 shadow-xl">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                    <span>Perbesar</span>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 right-3 text-[11px] font-mono font-bold text-vibrantAmber px-2.5 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">2025</span>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block">Politeknik Negeri Madiun</span>
+                            <h3 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200 mt-0.5 leading-snug">Sertifikat Upgrading Skill</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 4 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div onclick="openCertModal('images/Sertifikat_RAHMANDA ALVIN SAPUTRA_Dasar-dasar Keamanan AI-1.png', 'Sertifikat Pelatihan KOMDIGI', 'Keamanan AI', '2025')" class="w-full h-48 rounded-xl bg-slate-900 border border-borderDark/80 relative overflow-hidden group-hover:border-vibrantAmber/50 transition duration-300 cursor-pointer group/frame">
+                            <img src="images/Sertifikat_RAHMANDA ALVIN SAPUTRA_Dasar-dasar Keamanan AI-1.png" alt="Sertifikat Pelatihan KOMDIGI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-obsidian/40 opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="px-3 py-1.5 rounded-full bg-obsidian/90 border border-white/20 text-xs font-mono text-white flex items-center gap-1.5 shadow-xl">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                    <span>Perbesar</span>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 right-3 text-[11px] font-mono font-bold text-vibrantAmber px-2.5 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">2025</span>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block">Keamanan AI</span>
+                            <h3 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200 mt-0.5 leading-snug">Sertifikat Pelatihan KOMDIGI</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 5 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div onclick="openCertModal('images/Sertifikat_RAHMANDA ALVIN SAPUTRA_Introduction to Cyber Security and Career Awareness-1.png', 'Sertifikat Pelatihan KOMDIGI', 'Cyber Security & Micro Skill', '2025')" class="w-full h-48 rounded-xl bg-slate-900 border border-borderDark/80 relative overflow-hidden group-hover:border-vibrantAmber/50 transition duration-300 cursor-pointer group/frame">
+                            <img src="images/Sertifikat_RAHMANDA ALVIN SAPUTRA_Introduction to Cyber Security and Career Awareness-1.png" alt="Sertifikat Pelatihan KOMDIGI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-obsidian/40 opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="px-3 py-1.5 rounded-full bg-obsidian/90 border border-white/20 text-xs font-mono text-white flex items-center gap-1.5 shadow-xl">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                    <span>Perbesar</span>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 right-3 text-[11px] font-mono font-bold text-vibrantAmber px-2.5 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">2025</span>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block">Cyber Security & Micro Skill</span>
+                            <h3 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200 mt-0.5 leading-snug">Sertifikat Pelatihan KOMDIGI</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 6 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div onclick="openCertModal('images/Sertifikat_RAHMANDA ALVIN SAPUTRA_Konsep Pemrograman-1.png', 'Sertifikat Pelatihan KOMDIGI', 'Konsep Pemrograman', '2025')" class="w-full h-48 rounded-xl bg-slate-900 border border-borderDark/80 relative overflow-hidden group-hover:border-vibrantAmber/50 transition duration-300 cursor-pointer group/frame">
+                            <img src="images/Sertifikat_RAHMANDA ALVIN SAPUTRA_Konsep Pemrograman-1.png" alt="Sertifikat Pelatihan KOMDIGI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-obsidian/40 opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="px-3 py-1.5 rounded-full bg-obsidian/90 border border-white/20 text-xs font-mono text-white flex items-center gap-1.5 shadow-xl">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                    <span>Perbesar</span>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 right-3 text-[11px] font-mono font-bold text-vibrantAmber px-2.5 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">2025</span>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block">Konsep Pemrograman</span>
+                            <h3 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200 mt-0.5 leading-snug">Sertifikat Pelatihan KOMDIGI</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 7 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div onclick="openCertModal('images/Sertifikat_UKK_SMK5.jpeg', 'Sertifikasi Kompetensi Keahlian TKJ', 'Uji Kompetensi Keahlian', '2024')" class="w-full h-48 rounded-xl bg-slate-900 border border-borderDark/80 relative overflow-hidden group-hover:border-vibrantAmber/50 transition duration-300 cursor-pointer group/frame">
+                            <img src="images/Sertifikat_UKK_SMK5.jpeg" alt="Sertifikasi Kompetensi Keahlian TKJ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-obsidian/40 opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="px-3 py-1.5 rounded-full bg-obsidian/90 border border-white/20 text-xs font-mono text-white flex items-center gap-1.5 shadow-xl">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                    <span>Perbesar</span>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 right-3 text-[11px] font-mono font-bold text-vibrantAmber px-2.5 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">2024</span>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block">Uji Kompetensi Keahlian</span>
+                            <h3 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200 mt-0.5 leading-snug">Sertifikasi Kompetensi Keahlian TKJ</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 8 -->
+                <div class="rounded-2xl bg-cardDark/90 border border-borderDark glass-card p-4 flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div onclick="openCertModal('images/Sertifikat_Inka.jpeg', 'Sertifikat Praktek Kerja Industri', 'PT Industri Kereta Api (Persero)', '2023')" class="w-full h-48 rounded-xl bg-slate-900 border border-borderDark/80 relative overflow-hidden group-hover:border-vibrantAmber/50 transition duration-300 cursor-pointer group/frame">
+                            <img src="images/Sertifikat_Inka.jpeg" alt="Sertifikat Praktek Kerja Industri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out">
+                            <div class="absolute inset-0 bg-obsidian/40 opacity-0 group-hover/frame:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <div class="px-3 py-1.5 rounded-full bg-obsidian/90 border border-white/20 text-xs font-mono text-white flex items-center gap-1.5 shadow-xl">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path></svg>
+                                    <span>Perbesar</span>
+                                </div>
+                            </div>
+                            <span class="absolute top-3 right-3 text-[11px] font-mono font-bold text-vibrantAmber px-2.5 py-0.5 rounded bg-obsidian/90 border border-borderDark backdrop-blur">2023</span>
+                        </div>
+                        <div class="pt-1">
+                            <span class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block">PT Industri Kereta Api (Persero)</span>
+                            <h3 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200 mt-0.5 leading-snug">Sertifikat Praktek Kerja Industri</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Keahlian Pane (14 Keahlian) -->
+            <div id="pane-techstack" class="showcase-pane hidden mt-10">
+                <div class="p-8 sm:p-10 rounded-2xl bg-cardDark/90 border border-borderDark glass-card">
+                    <div class="text-center max-w-md mx-auto mb-10 space-y-1">
+                        <h3 class="font-bold text-xl text-white">Matriks Keahlian & Framework</h3>
+                        <p class="text-xs text-slate-400 font-mono">Tools dan teknologi yang saya gunakan dalam rekayasa sistem</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                        <!-- PHP -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">PHP</span>
+                        </div>
+
+                        <!-- Laravel -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">Laravel</span>
+                        </div>
+
+                        <!-- Tailwind CSS -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">Tailwind CSS</span>
+                        </div>
+
+                        <!-- MySQL -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">MySQL</span>
+                        </div>
+
+                        <!-- Kotlin -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">Kotlin</span>
+                        </div>
+
+                        <!-- Android Studio -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">Android Studio</span>
+                        </div>
+
+                        <!-- IoT -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="images/logo_iot1.png" alt="IoT" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">IoT</span>
+                        </div>
+
+                        <!-- Arduino -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">Arduino</span>
+                        </div>
+
+                        <!-- C++ -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">C++</span>
+                        </div>
+
+                        <!-- Network -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="images/logo_network.png" alt="Network" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">Network</span>
+                        </div>
+
+                        <!-- IT Support -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="images/logo_itsupport.png" alt="IT Support" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">IT Support</span>
+                        </div>
+
+                        <!-- Git -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">Git</span>
+                        </div>
+
+                        <!-- GitHub -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">GitHub</span>
+                        </div>
+
+                        <!-- Postman -->
+                        <div class="group p-4 rounded-2xl bg-obsidian/90 border border-borderDark/90 hover:border-electricCyan/60 flex flex-col items-center justify-center gap-3 transition-all duration-300 transform hover:-translate-y-1.5 hover:shadow-lg hover:shadow-electricCyan/10">
+                            <div class="w-12 h-12 rounded-xl bg-cardDark/80 border border-borderDark/60 flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:border-slate-500 transition-all duration-300 shadow-inner">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="w-full h-full object-contain filter drop-shadow">
+                            </div>
+                            <span class="text-xs font-mono text-slate-300 group-hover:text-white font-medium text-center">Postman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ⏱️ PENGALAMAN & KEPEMIMPINAN (2026 -> 2023) -->
+        <!-- ============================================================ -->
+        <section id="experience" class="space-y-8 reveal-on-scroll">
+            <div class="border-b border-borderDark/60 pb-4">
+                <p class="font-mono text-xs tracking-widest text-electricCyan uppercase">— REKAM JEJAK</p>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Pengalaman & Kepemimpinan</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 1. Magang Industri CROG (2026) -->
+                <div class="p-6 rounded-2xl bg-cardDark/90 border border-borderDark glass-card flex flex-col justify-between space-y-4 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-borderDark group-hover:bg-electricCyan transition-colors duration-300"></div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-xs text-electricCyan font-bold px-2 py-0.5 rounded bg-electricCyan/10 border border-electricCyan/20">2026</span>
+                            <span class="text-[11px] font-mono text-slate-500">Magang</span>
+                        </div>
+                        <h4 class="font-bold text-base text-white group-hover:text-electricCyan transition duration-200">Magang Industri</h4>
+                        <p class="text-xs font-mono text-electricCyan">CROG Robotic International</p>
+                        <p class="text-xs text-slate-400 leading-relaxed pt-1">
+                            Terlibat langsung dalam perakitan mikrokontroler, integrasi modul sensor cerdas, serta pengujian sistem kendali otomatis berbasis telemetri nirkabel.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Koordinator Divisi DAGRI (2026) -->
+                <div class="p-6 rounded-2xl bg-cardDark/90 border border-borderDark glass-card flex flex-col justify-between space-y-4 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-borderDark group-hover:bg-emerald-400 transition-colors duration-300"></div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-xs text-emerald-400 font-bold px-2 py-0.5 rounded bg-emerald-400/10 border border-emerald-400/20">2026</span>
+                            <span class="text-[11px] font-mono text-slate-500">Organisasi</span>
+                        </div>
+                        <h4 class="font-bold text-base text-white group-hover:text-emerald-400 transition duration-200">Koordinator Divisi DAGRI</h4>
+                        <p class="text-xs font-mono text-electricCyan">HIMATIF PNM</p>
+                        <p class="text-xs text-slate-400 leading-relaxed pt-1">
+                            Memimpin strategi relasi internal jurusan, mengoordinasikan tim divisi, serta membangun sinergi antar-angkatan di ekosistem kampus.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Anggota Divisi DAGRI (2025) -->
+                <div class="p-6 rounded-2xl bg-cardDark/90 border border-borderDark glass-card flex flex-col justify-between space-y-4 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-borderDark group-hover:bg-electricIndigo transition-colors duration-300"></div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-xs text-electricIndigo font-bold px-2 py-0.5 rounded bg-electricIndigo/10 border border-electricIndigo/20">2025</span>
+                            <span class="text-[11px] font-mono text-slate-500">Organisasi</span>
+                        </div>
+                        <h4 class="font-bold text-base text-white group-hover:text-electricIndigo transition duration-200">Anggota Divisi DAGRI</h4>
+                        <p class="text-xs font-mono text-electricCyan">HIMATIF PNM</p>
+                        <p class="text-xs text-slate-400 leading-relaxed pt-1">
+                            Mengelola komunikasi internal organisasi, menjembatani aspirasi mahasiswa jurusan, serta aktif mengawal jalannya program kerja himpunan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. PKL IT Support & Jaringan (2023) -->
+                <div class="p-6 rounded-2xl bg-cardDark/90 border border-borderDark glass-card flex flex-col justify-between space-y-4 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-borderDark group-hover:bg-vibrantAmber transition-colors duration-300"></div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="font-mono text-xs text-vibrantAmber font-bold px-2 py-0.5 rounded bg-vibrantAmber/10 border border-vibrantAmber/20">2023</span>
+                            <span class="text-[11px] font-mono text-slate-500">Prakerin</span>
+                        </div>
+                        <h4 class="font-bold text-base text-white group-hover:text-vibrantAmber transition duration-200">IT Support & Jaringan</h4>
+                        <p class="text-xs font-mono text-electricCyan">PT Industri Kereta Api (Persero) / PT INKA</p>
+                        <p class="text-xs text-slate-400 leading-relaxed pt-1">
+                            Menangani perawatan preventif hardware, troubleshooting jaringan lokal, serta membantu pemeliharaan infrastruktur sistem kerja kantor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 📬 HUB KONTAK SIMPEL & MODERN (4 KOLOM TERTATA RAPI) -->
+        <!-- ============================================================ -->
+        <section id="contact" class="pt-8 pb-12 reveal-on-scroll border-t border-borderDark/60">
+            <div class="p-8 sm:p-12 rounded-3xl bg-cardDark/90 border border-borderDark glass-card">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Kolom 1: Profil Singkat -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-electricCyan"></span>
+                            <h3 class="font-bold text-lg text-white tracking-wide">Rahmanda Alvin</h3>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Mahasiswa D3 TI Politeknik Negeri Madiun. Berfokus pada Rekayasa Perangkat Lunak, Aplikasi Mobile, dan Sistem IoT Modern.
+                        </p>
+                    </div>
+
+                    <!-- Kolom 2: Domisili & Lokasi -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-electricCyan">
+                            <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <h4 class="font-bold text-sm text-white">Lokasi Kami</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed font-mono">
+                            Madiun, Jawa Timur<br/>
+                            Indonesia, 63138
+                        </p>
+                    </div>
+
+                    <!-- Kolom 3: Kontak Langsung -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-vibrantAmber">
+                            <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                            <h4 class="font-bold text-sm text-white">Kontak Surel</h4>
+                        </div>
+                        <a href="mailto:rahmandaalvin94@gmail.com" class="text-xs text-slate-300 hover:text-electricCyan font-mono block transition duration-200">
+                            rahmandaalvin94@gmail.com
+                        </a>
+                    </div>
+
+                    <!-- Kolom 4: Jejaring Sosial Media -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-emerald-400">
+                            <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                            <h4 class="font-bold text-sm text-white">Jejaring Sosial</h4>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <a href="https://github.com/RahmandaAlvin" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-obsidian border border-borderDark flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-400 transition duration-200">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/rahmanda-alvin-007132329/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-obsidian border border-borderDark flex items-center justify-center text-slate-400 hover:text-electricCyan hover:border-electricCyan transition duration-200">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                            </a>
+                            <a href="https://www.instagram.com/alvnsaputraa_/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-obsidian border border-borderDark flex items-center justify-center text-slate-400 hover:text-pink-400 hover:border-pink-500 transition duration-200">
+                                <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- 🔍 LIGHTBOX MODAL FULLSCREEN SERTIFIKAT -->
+    <!-- ============================================================ -->
+    <div id="certModal" class="fixed inset-0 z-[110] hidden bg-obsidian/90 backdrop-blur-md items-center justify-center p-4 sm:p-8" onclick="closeCertModal(event)">
+        <div class="relative max-w-4xl w-full bg-cardDark border border-borderDark rounded-2xl overflow-hidden shadow-2xl flex flex-col" onclick="event.stopPropagation()">
+            <div class="p-4 sm:px-6 flex items-center justify-between border-b border-borderDark/80 bg-obsidian/60">
+                <div class="space-y-0.5">
+                    <span id="modalCertIssuer" class="text-[11px] font-mono text-electricCyan uppercase tracking-wider block"></span>
+                    <h3 id="modalCertTitle" class="text-base sm:text-lg font-bold text-white leading-snug"></h3>
+                </div>
+                <button type="button" onclick="closeCertModal()" class="w-10 h-10 rounded-full bg-obsidian border border-borderDark text-slate-400 hover:text-white hover:border-slate-500 flex items-center justify-center transition duration-200 ml-4 shrink-0 shadow">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-4 sm:p-6 bg-obsidian/40 flex items-center justify-center max-h-[75vh] overflow-auto">
+                <img id="modalCertImg" src="" alt="Sertifikat" class="max-w-full max-h-[70vh] rounded-lg shadow-2xl object-contain border border-borderDark/40">
+            </div>
+
+            <div class="px-6 py-3 border-t border-borderDark/60 bg-obsidian/40 flex items-center justify-between text-xs font-mono text-slate-400">
+                <span id="modalCertYear" class="text-vibrantAmber font-semibold"></span>
+                <span class="text-[11px] text-slate-500">Tekan tombol ESC atau klik di luar untuk menutup</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dev Footer -->
+    <footer class="border-t border-borderDark/80 py-8 bg-obsidian/90 backdrop-blur">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+            <div class="flex items-center gap-2">
+                <span class="text-white font-bold">ALVIN<span class="text-electricCyan">.DEV</span></span>
+            </div>
+            <p>© 2026 Rahmanda Alvin Saputra. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Lightbox Modal Functions
+        function openCertModal(imageSrc, title, issuer, year) {
+            const modal = document.getElementById('certModal');
+            const img = document.getElementById('modalCertImg');
+            const titleEl = document.getElementById('modalCertTitle');
+            const issuerEl = document.getElementById('modalCertIssuer');
+            const yearEl = document.getElementById('modalCertYear');
+
+            img.src = imageSrc;
+            titleEl.textContent = title;
+            issuerEl.textContent = issuer;
+            yearEl.textContent = 'Tahun: ' + year;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertModal(event) {
+            const modal = document.getElementById('certModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCertModal();
+            }
+        });
+
+        // Showcase Tab Switching
+        function switchShowcaseTab(tabKey) {
+            document.querySelectorAll('.showcase-pane').forEach(el => el.classList.add('hidden'));
+
+            document.querySelectorAll('.showcase-tab-btn').forEach(btn => {
+                btn.className = 'showcase-tab-btn px-6 py-2 rounded-full text-xs font-mono font-medium transition-all duration-300 text-slate-400 hover:text-white';
+            });
+
+            const activePane = document.getElementById('pane-' + tabKey);
+            if (activePane) activePane.classList.remove('hidden');
+
+            const activeBtn = document.getElementById('tab-btn-' + tabKey);
+            if (activeBtn) {
+                activeBtn.className = 'showcase-tab-btn px-6 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 bg-white/10 text-white shadow';
+            }
+        }
+
+        // Intro Simulation
+        document.addEventListener("DOMContentLoaded", () => {
+            let progress = 0;
+            const bar = document.getElementById("loader-bar");
+            const percent = document.getElementById("loader-percent");
+            const status = document.getElementById("loader-status");
+            const preloader = document.getElementById("preloader");
+
+            const statuses = [
+                "Menyiapkan modul sistem...",
+                "Memuat komponen antarmuka...",
+                "Mengintegrasikan data proyek & sertifikasi...",
+                "Menjalankan arsitektur cyber...",
+                "Sistem siap!"
+            ];
+
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 4) + 2;
+                if (progress > 100) progress = 100;
+
+                if (bar) bar.style.width = progress + "%";
+                if (percent) percent.textContent = progress + "%";
+
+                if (status) {
+                    const statusIdx = Math.floor((progress / 100) * (statuses.length - 1));
+                    status.textContent = statuses[statusIdx];
+                }
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        preloader.classList.add("loaded");
+                        setTimeout(typeEffect, 200);
+                    }, 350);
+                }
+            }, 35);
+        });
+
+        // Typewriter Effect
+        const roles = [
+            "Multi-Disciplinary IT Engineer",
+            "Full-Stack Web Developer (Laravel)",
+            "Mobile App Engineer (Kotlin)",
+            "IoT & Automation Specialist (ESP32)",
+            "IT Support & Network Infrastructure"
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const targetElement = document.getElementById("role-typewriter");
+
+        function typeEffect() {
+            if (!targetElement) return;
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                targetElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                targetElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typingSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                typingSpeed = 1800;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typingSpeed = 400;
+            }
+
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        // Smooth Scroll Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
